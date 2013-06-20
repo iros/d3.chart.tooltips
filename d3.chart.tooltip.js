@@ -1,7 +1,7 @@
 /*! d3.chart.tooltip - v0.1.0
  *  License: MIT Expat
  *  Author: Irene Ros
- *  Date: 2013-06-19
+ *  Date: 2013-06-20
  */
 /* global d3 */
 d3.chart("TooltipMixinChart", {
@@ -52,8 +52,8 @@ d3.chart("TooltipMixinChart", {
             // and set its content to whatever the result of 
             // the text function that was provided is.
             tooltip.style({
-              left: (d3.event.clientX + 20)+"px",
-              top: (d3.event.clientY - 20)+"px",
+              left: (d3.event.pageX + 20)+"px",
+              top: (d3.event.pageY - 20)+"px",
               position: "absolute",
               "z-index": 1001
             }).html(function(){
@@ -70,8 +70,8 @@ d3.chart("TooltipMixinChart", {
           .on("mousemove.tooltip", function(d, i) {
 
             tooltip.style({
-              left: (d3.event.clientX + 20)+"px",
-              top:  (d3.event.clientY - 20)+"px"
+              left: (d3.event.pageX + 20)+"px",
+              top:  (d3.event.pageY - 20)+"px"
             }).html(function(){
               if (typeof chart._textFn === "undefined") {
                 throw new Error(_errors.noText);
